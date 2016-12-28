@@ -1,5 +1,7 @@
 # XMLRPC-based-Fault-Tolerant-Distributed-File-System
-This is the source code for a distributed File System in Userspace (FUSE), where the data blocks are spread over multiple servers to distribute the load. The code also addresses the concepts of redundancy and fault-tolerance. <br /><br />
+This is the source code for a distributed File System in Userspace (FUSE), where the data blocks are spread over multiple servers to distribute the load. The code also addresses the concepts of redundancy and fault-tolerance. 
+
+A data corruption simulator is also provided.<br /><br />
 
 ###Design Parameters
 1. The meta-server stores the metadata of files in the file system. The data-servers store the file data. 
