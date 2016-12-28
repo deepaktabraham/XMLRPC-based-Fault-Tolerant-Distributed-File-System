@@ -23,7 +23,7 @@ Distributed FUSE Client : ***`python distributedFS.py <fusemount directory> <met
 Corruption Simulator : ***`python corrupt.py <port of the dataserver to be corrupted> <pathname of the file to be corrupted in the context of FUSE filesystem>`***<br />
 
 Example (N=5):<br />
-python metaserver.py 1111
+python metaserver.py 1111<br />
 python dataserver.py 0 2222 3333 4444 5555 6666<br />
 python dataserver.py 1 2222 3333 4444 5555 6666<br />
 python dataserver.py 2 2222 3333 4444 5555 6666<br />
