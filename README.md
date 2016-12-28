@@ -16,17 +16,18 @@ This is the source code for a distributed File System in Userspace (FUSE), where
 10. When a server is down, any write calls on the FUSE folder will be a blocking call. The FUSE program will keep retrying the operation till it succeeds, and the write call will not return until it succeeds.
 11. Reads will return successfully even if a single replica is available, and the checksum verifies correctly.
 
-Program arguments and guidelines:
-The programs take the arguments in the following format:
-python metaserver.py <port for metaserver>
-python dataserver.py <0 indexed server number> <ports for all dataservers
-sperated by spaces>
-python distributedFS.py <fusemount directory> <meta server port>
-<dataserver ports seperated by spaces>
-Example (N=4):
-python metaserver.py 2222
-python dataserver.py 0 3333 4444 5555 6666
-python dataserver.py 1 3333 4444 5555 6666
-python dataserver.py 2 3333 4444 5555 6666
-python dataserver.py 3 3333 4444 5555 6666
-python distributedFS.py fusemount 2222 3333 4444 5555 6666
+###Steps to tun the Fault-Tolerant Distributed File-System:
+Meta-Server : ***`python metaserver.py <port for metaserver>`***<br />
+Data-Server : ***`python dataserver.py <0 indexed server number> <ports for all dataservers separated by spaces>`***<br />
+Distributed FUSE Client : ***`python distributedFS.py <fusemount directory> <meta server port> <dataserver ports seperated by spaces>`***<br />
+Corruption Simulator : ***`python corrupt.py <port of the dataserver to be corrupted> <pathname of the file to be corrupted in the context of FUSE filesystem>`***<br />
+
+Example (N=5):<br />
+python metaserver.py 1111
+python dataserver.py 0 2222 3333 4444 5555 6666<br />
+python dataserver.py 1 2222 3333 4444 5555 6666<br />
+python dataserver.py 2 2222 3333 4444 5555 6666<br />
+python dataserver.py 3 2222 3333 4444 5555 6666<br />
+python dataserver.py 4 2222 3333 4444 5555 6666<br />
+python distributedFS.py fusemount 1111 2222 3333 4444 5555 6666
+python corrupt.py 2222 /file1
