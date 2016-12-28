@@ -14,7 +14,7 @@ This is the source code for a distributed File System in Userspace (FUSE), where
 8. To deal with data corruption, the checksums of data blocks is also stored in the data-servers. 
 9. When there is a read call from the user, the FUSE client reads from both data-servers (original and redundant copy of data), verify the checksum, and writes back to the corrupted server, if the client detects data corruption.
 10. When a server is down, any write calls on the FUSE folder will be a blocking call. The FUSE program will keep retrying the operation till it succeeds, and the write call will not return until it succeeds.
-11. Reads will return successfully even if a single replica is available, and the checksum verifies correctly.<br />
+11. Reads will return successfully even if a single replica is available, and the checksum verifies correctly.<br /><br />
 
 ###Steps to tun the Fault-Tolerant Distributed File-System:
 Meta-Server : ***`python metaserver.py <port for metaserver>`***<br />
