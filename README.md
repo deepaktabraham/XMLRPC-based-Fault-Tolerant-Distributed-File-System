@@ -3,7 +3,7 @@ This is the source code for a distributed File System in Userspace (FUSE), where
 
 A data corruption simulator is also provided.<br /><br />
 
-###Design Parameters
+### Design Parameters
 1. The meta-server stores the metadata of files in the file system. The data-servers store the file data. 
 2. There is only one meta-server and it is considered to be extremely reliable and never fails.
 3. There can be multiple data-servers, but a minimum of two is required. 
@@ -18,7 +18,7 @@ A data corruption simulator is also provided.<br /><br />
 10. When a server is down, any write calls on the FUSE folder will be a blocking call. The FUSE program will keep retrying the operation till it succeeds, and the write call will not return until it succeeds.
 11. Reads will return successfully even if a single replica is available, and the checksum verifies correctly.<br /><br />
 
-###Steps to run the Fault-Tolerant Distributed File-System:
+### Steps to run the Fault-Tolerant Distributed File-System:
 Meta-Server : ***`python metaserver.py <port for metaserver>`***<br />
 Data-Server : ***`python dataserver.py <0 indexed server number> <ports for all dataservers separated by spaces>`***<br />
 Distributed FUSE Client : ***`python distributedFS.py <fusemount directory> <meta server port> <dataserver ports seperated by spaces>`***<br />
