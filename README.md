@@ -19,10 +19,10 @@ A data corruption simulator is also provided.<br /><br />
 11. Reads will return successfully even if a single replica is available, and the checksum verifies correctly.<br /><br />
 
 ### Steps to run the Fault-Tolerant Distributed File-System:
-Meta-Server : ***`python metaserver.py <port for metaserver>`***<br />
-Data-Server : ***`python dataserver.py <0 indexed server number> <ports for all dataservers separated by spaces>`***<br />
-Distributed FUSE Client : ***`python distributedFS.py <fusemount directory> <meta server port> <dataserver ports seperated by spaces>`***<br />
-Corruption Simulator : ***`python corrupt.py <port of the dataserver to be corrupted> <pathname of the file to be corrupted in the context of FUSE filesystem>`***<br />
+Meta-Server : **`python metaserver.py <port for metaserver>`**<br />
+Data-Server : **`python dataserver.py <0 indexed server number> <ports for all dataservers separated by spaces>`**<br />
+Distributed FUSE Client : **`python distributedFS.py <fusemount directory> <meta server port> <dataserver ports seperated by spaces>`**<br />
+Corruption Simulator : **`python corrupt.py <port of the dataserver to be corrupted> <pathname of the file to be corrupted in the context of FUSE filesystem>`**<br />
 
 Example (N=5):<br />
 python metaserver.py 1111<br />
